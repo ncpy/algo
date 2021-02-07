@@ -1,7 +1,7 @@
+
 grid=[]
 ROWS=7      # alternatively, 9
 COLUMNS=6   # 6
-in_a_row=4  # 5
 marker = "x"            #default marker at beginning
 player = "Player 1"     #default player at beginning
 
@@ -16,19 +16,19 @@ def checkRows(grid, marker):
     for i in range(len(grid)):      # for every row in a grid
         for j in range(len(grid[i])):   # for every column(or item) in row
             if j < len(grid[i])-3:   #check horizontaly
-                if grid[i][j] == grid[i][j+in_a_row-3] == grid[i][j+in_a_row-2] == grid[i][j+in_a_row-1] == marker:
+                if grid[i][j] == grid[i][j+1] == grid[i][j+2] == grid[i][j+3] == marker:
                     return True
 
             if i < len(grid)-3:     #check vertically
-                if grid[i][j] == grid[i+in_a_row-3][j] == grid[i+in_a_row-2][j] == grid[i+in_a_row-1][j] == marker:
+                if grid[i][j] == grid[i+1][j] == grid[i+2][j] == grid[i+3][j] == marker:
                     return True
 
             if  i < len(grid)-3 and j < len(grid[i])-3:     #check diagonal (left-up to right-down)
-                if grid[i][j] == grid[i+in_a_row-3][j+in_a_row-3] == grid[i+in_a_row-2][j+in_a_row-2] == grid[i+in_a_row-1][j+in_a_row-1] == marker:
+                if grid[i][j] == grid[i+1][j+1] == grid[i+2][j+2] == grid[i+3][j+3] == marker:
                     return True
 
             if  i < len(grid)-3 and j < len(grid[i])+3:     #check diagonal (left-down to right-up)
-                if grid[i][j] == grid[i+in_a_row-3][j-in_a_row+3] == grid[i+in_a_row-2][j-in_a_row+2] == grid[i+in_a_row-1][j-in_a_row+1] == marker:
+                if grid[i][j] == grid[i+1][j-1] == grid[i+2][j-2] == grid[i+3][j-3] == marker:
                     return True
 
 def is_available(item_row, play_col):   #check if column(item) in row is available
